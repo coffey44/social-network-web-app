@@ -1,15 +1,14 @@
-// src/pages/LoginPage.tsx
 import { useState } from "react";
 import { Form, Button, Card, Container, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // ✅ Import the hook
+import { useAuth } from "../context/AuthContext";
 
 const LoginPage = () => {
   const [emailOrUsername, setEmailOrUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { login } = useAuth(); // ✅ Get login method from context
+  const { login } = useAuth();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +19,7 @@ const LoginPage = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include", // Include cookies for session management
+        credentials: "include",
         body: JSON.stringify({ emailOrUsername, password }),
       });
 
@@ -31,7 +30,7 @@ const LoginPage = () => {
         return;
       }
 
-      login(data.user, data.token); // ✅ Call the context login method
+      login(data.user, data.token);
       navigate("/home");
     } catch (err) {
       setError("Login failed. Please try again.");

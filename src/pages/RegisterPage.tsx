@@ -1,8 +1,8 @@
-// src/pages/RegisterPage.tsx
+
 import { useState } from "react";
 import { Form, Button, Card, Container, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // ✅ Import AuthContext
+import { useAuth } from "../context/AuthContext";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +11,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const { login } = useAuth(); // ✅ Get login function from context
+  const { login } = useAuth();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +33,6 @@ const RegisterPage = () => {
         return;
       }
 
-      // ✅ Automatically log the user in after registration
       login(data.user, data.token);
       navigate("/home");
     } catch (err) {

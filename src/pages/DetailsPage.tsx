@@ -1,4 +1,4 @@
-// src/pages/DetailsPage.tsx
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card, Container, Form, Button, Spinner, Alert } from "react-bootstrap";
@@ -109,7 +109,7 @@ const DetailsPage = () => {
         return;
       }
 
-      await fetchReviews(); // ✅ Refresh reviews list
+      await fetchReviews();
       setRating(5);
       setComment("");
     } catch {

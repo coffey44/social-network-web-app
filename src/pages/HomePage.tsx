@@ -1,4 +1,4 @@
-// src/pages/HomePage.tsx
+
 import { useEffect, useState } from "react";
 import { Card, Row, Col, Container, Spinner, Alert } from "react-bootstrap";
 import { useAuth } from "../context/AuthContext";

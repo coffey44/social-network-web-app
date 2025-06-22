@@ -1,4 +1,4 @@
-// src/context/AuthContext.tsx
+
 import { createContext, useContext, useEffect, useState } from "react";
 
 type User = {
@@ -13,14 +13,14 @@ type AuthContextType = {
   user: User | null;
   login: (user: User, token: string) => void;
   logout: () => void;
-  setUser: (user: User) => void; // ✅ added
+  setUser: (user: User) => void;
 };
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
   login: () => {},
   logout: () => {},
-  setUser: () => {}, // ✅ placeholder
+  setUser: () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -47,7 +47,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.removeItem("token");
   };
 
-  // ✅ public setter for user updates
   const setUser = (user: User) => {
     setUserState(user);
     localStorage.setItem("user", JSON.stringify(user));

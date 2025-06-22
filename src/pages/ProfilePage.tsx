@@ -1,4 +1,4 @@
-// src/pages/ProfilePage.tsx
+
 import { useEffect, useState } from "react";
 import {
   Container,

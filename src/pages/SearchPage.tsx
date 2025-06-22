@@ -1,4 +1,3 @@
-// src/pages/SearchPage.tsx
 import { useEffect, useState } from "react";
 import {
   Form,
@@ -55,11 +54,10 @@ const SearchPage = () => {
     e.preventDefault();
     if (!query) return;
 
-    setSearchParams({ q: query }); // ✅ update the URL
+    setSearchParams({ q: query }); 
     searchMovies(query);
   };
 
-  // Load search from URL on initial mount
   useEffect(() => {
     if (initialQuery) {
       searchMovies(initialQuery);

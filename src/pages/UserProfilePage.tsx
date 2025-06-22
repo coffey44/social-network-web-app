@@ -1,4 +1,3 @@
-// src/pages/UserProfilePage.tsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -48,7 +47,6 @@ const UserProfilePage = () => {
           setIsFollowing(user.following?.includes(data._id) ?? false);
         }
 
-        // fetch OMDb info for bookmarks
         const movieInfo: Record<string, MovieInfo> = {};
         await Promise.all(
           (data.bookmarks || []).map(async (id: string) => {
@@ -85,7 +83,6 @@ const UserProfilePage = () => {
         const data = await res.json();
         setReviews(data);
 
-        // fetch movie details for each reviewed movie
         const reviewMovieInfo: Record<string, MovieInfo> = { ...movieDetails };
         await Promise.all(
           data.map(async (review: Review) => {
